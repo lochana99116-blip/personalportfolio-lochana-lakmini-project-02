@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Mart Contact</title>
+
+    <style>
+      /* GLOBAL */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f8f9fa;
+        animation: fadeIn 0.8s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        position: sticky;
+        top: 0;
+      }
+
+      .navbar-brand {
+        font-size: 28px;
+        font-weight: bold;
+        color: tomato;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: tomato;
+      }
+
+      /* HERO */
+      .contact-hero {
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg");
+        background-size: cover;
+        background-position: center;
+        height: 320px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+      }
+
+      .contact-hero h1 {
+        font-size: 55px;
+        margin: 0;
+      }
+
+      .contact-hero p {
+        font-size: 18px;
+      }
+
+      /* CONTACT SECTION */
+      .contact-section {
+        padding: 80px 20px;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: auto;
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      /* BOX */
+      .contact-box {
+        background: white;
+        padding: 35px;
+        border-radius: 15px;
+        flex: 1;
+        min-width: 300px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: 0.4s;
+      }
+
+      .contact-box:hover {
+        transform: translateY(-5px);
+      }
+
+      .contact-title h2 {
+        color: tomato;
+        margin-bottom: 10px;
+      }
+
+      /* INFO */
+      .contact-info h5 {
+        margin-top: 20px;
+        margin-bottom: 5px;
+      }
+
+      .contact-info p {
+        margin: 5px 0;
+        color: gray;
+      }
+
+      /* FORM */
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+      }
+
+      .contact-form textarea {
+        height: 120px;
+        resize: none;
+      }
+
+      .contact-form button {
+        background: tomato;
+        color: white;
+        border: none;
+        padding: 12px;
+        width: 100%;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .contact-form button:hover {
+        background: darkred;
+        transform: scale(1.05);
+      }
+
+      /* FOOTER */
+      .footer {
+        text-align: center;
+        padding: 20px;
+        background: #222;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <a href="#" class="navbar-brand">Food Mart</a>
+
+      <div class="nav-links">
+        <a href="foodmart-home.html">Home</a>
+        <a href="food-about.html">About</a>
+        <a href="food-gallery.html">Gallery</a>
+        <a href="food-contact.html" style="color: tomato">Contact</a>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="contact-hero">
+      <div>
+        <h1>Contact Us</h1>
+        <p>We would love to hear from you</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section">
+      <div class="container">
+        <!-- LEFT -->
+        <div class="contact-box contact-info">
+          <div class="contact-title">
+            <h2>Get In Touch</h2>
+            <p>Contact Food Mart for orders or support.</p>
+          </div>
+
+          <h5>Address</h5>
+          <p>No:25, Main Street, Colombo 7</p>
+
+          <h5>Telephone</h5>
+          <p>011 4567893</p>
+          <p>076 1234567</p>
+
+          <h5>Email</h5>
+          <p>foodmart@gmail.com</p>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="contact-box">
+          <div class="contact-title">
+            <h2>Send Message</h2>
+          </div>
+
+          <form class="contact-form">
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Email Address" />
+            <input type="text" placeholder="Subject" />
+            <textarea placeholder="Write your message"></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <hr />
+      <p>© 2020 Food Mart</p>
+    </div>
+  </body>
+</html>

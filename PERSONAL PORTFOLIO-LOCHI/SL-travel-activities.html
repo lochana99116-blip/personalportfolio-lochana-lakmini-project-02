@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SL Travels - Activities</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #f5fbff;
+        padding-top: 80px;
+      }
+
+      /* NAVBAR */
+      .sl-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+      }
+
+      .logo-text {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0077b6;
+        text-decoration: none;
+      }
+
+      .logo-text span {
+        color: #00b4d8;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #1e3a5f;
+        font-weight: 500;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: #00b4d8;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .book-btn {
+        padding: 10px 20px;
+        border-radius: 40px;
+        background: linear-gradient(135deg, #0077b6, #00b4d8);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* SECTION */
+      .activity-section {
+        padding: 80px 5%;
+      }
+
+      .section-title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #023e8a;
+        text-align: center;
+      }
+
+      .section-sub {
+        text-align: center;
+        color: #555;
+        margin-top: 10px;
+        margin-bottom: 40px;
+      }
+
+      /* GRID */
+      .activity-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      /* CARD */
+      .activity-card {
+        background: white;
+        padding: 25px;
+        border-radius: 18px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        transition: 0.4s ease;
+        text-align: center;
+      }
+
+      .activity-card:hover {
+        transform: translateY(-10px);
+        background: linear-gradient(135deg, #0077b6, #00b4d8);
+        color: white;
+      }
+
+      .activity-card h4 {
+        color: #023e8a;
+        margin-bottom: 10px;
+      }
+
+      .activity-card p {
+        color: #666;
+        font-size: 0.95rem;
+      }
+
+      .activity-card:hover h4,
+      .activity-card:hover p {
+        color: white;
+      }
+
+      /* FOOTER */
+      .sl-footer {
+        background: linear-gradient(135deg, #023e8a, #0077b6);
+        color: white;
+        padding: 70px 5% 20px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .footer-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 8px;
+      }
+
+      .footer-links a {
+        color: #e6f4ff;
+        text-decoration: none;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        margin-top: 30px;
+        color: #dbefff;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 992px) {
+        .activity-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .activity-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .nav-links {
+          display: none; /* simple mobile clean version */
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="sl-navbar">
+      <div class="nav-container">
+        <a href="#" class="logo-text">SL <span>Travels</span></a>
+
+        <ul class="nav-links">
+          <li><a href="SL-travel-home.html">Home</a></li>
+          <li><a href="SL-travel-destinatins.html">Destinations</a></li>
+          <li><a href="SL-travel-tours.html">Tours</a></li>
+          <li><a href="SL-travel-activities.html">Activities</a></li>
+          <li>
+            <a class="book-btn" href="SL-travel-bookings.html">Book Now</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ACTIVITY SECTION -->
+    <section class="activity-section">
+      <h1 class="section-title">Activities</h1>
+      <p class="section-sub">Explore thrilling experiences across Sri Lanka</p>
+
+      <div class="activity-grid">
+        <div class="activity-card">
+          <h4>Wildlife</h4>
+          <p>Discover elephants, leopards & exotic birds in national parks.</p>
+        </div>
+
+        <div class="activity-card">
+          <h4>Safari</h4>
+          <p>Jeep safaris through Yala & Udawalawe wildlife reserves.</p>
+        </div>
+
+        <div class="activity-card">
+          <h4>Hiking</h4>
+          <p>Scenic trails through mountains, forests & waterfalls.</p>
+        </div>
+
+        <div class="activity-card">
+          <h4>Trekking</h4>
+          <p>Adventure trekking in Knuckles & hill country routes.</p>
+        </div>
+
+        <div class="activity-card">
+          <h4>Camping</h4>
+          <p>Night camping under stars in natural forest locations.</p>
+        </div>
+
+        <div class="activity-card">
+          <h4>Surfing</h4>
+          <p>Ride waves in Arugam Bay & Weligama surf spots.</p>
+        </div>
+
+        <div class="activity-card">
+          <h4>Whale Watching</h4>
+          <p>See blue whales & dolphins in Mirissa ocean tours.</p>
+        </div>
+
+        <div class="activity-card">
+          <h4>Hot Air Balloon</h4>
+          <p>Enjoy sunrise sky rides over scenic landscapes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="sl-footer">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">SL Travels</h3>
+          <p>Your trusted travel partner in Sri Lanka.</p>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="SL-travel-home.html">Home</a></li>
+            <li><a href="SL-travel-tours.html">Tours</a></li>
+            <li><a href="SL-travel-destinatins.html">Destinations</a></li>
+            <li><a href="SL-travel-activities.html">Activities</a></li>
+            <li><a href="SL-travel-bookings.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Categories</h3>
+          <ul class="footer-links">
+            <li><a href="SL-travel-tours.html">Honeymoon</a></li>
+            <li><a href="SL-travel-tours.html">Adventure</a></li>
+            <li><a href="SL-travel-tours.html">Nature</a></li>
+            <li><a href="SL-travel-tours.html">Culture</a></li>
+            <li><a href="SL-travel-tours.html">Wellness</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© 2026 SL Travels. All Rights Reserved</div>
+    </footer>
+  </body>
+</html>

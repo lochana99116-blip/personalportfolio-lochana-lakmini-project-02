@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Eco Cabana Offers</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Times New Roman", Times, serif;
+    background:#f7f7f7;
+    color:#222;
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    background:rgba(114,42,42,0.25);
+    backdrop-filter:blur(10px);
+}
+
+.nav-left,
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:white;
+    font-size:15px;
+    font-weight:500;
+    transition:0.3s ease;
+}
+
+.navbar a:hover{
+    color:#d4af37;
+}
+
+/* Dropdown */
+.dropdown{
+    position:relative;
+}
+
+.dropbtn{
+    font-family: 'Times New Roman', Times, serif;
+    background:none;
+    border:none;
+}
+
+.dropdown-menu{
+    position:absolute;
+    top:100%;
+    left:0;
+    min-width:220px;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    display:none;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.dropdown-menu a{
+    display:block;
+    color:#5a0202;
+    padding:12px 15px;
+    border-bottom:1px solid #eee;
+}
+
+.dropdown-menu a:hover{
+    background:#b76b6b;
+    color:white;
+}
+
+.dropdown:hover .dropdown-menu{
+    display:block;
+}
+
+/* Book Button */
+.book-btn{
+    background:#5a0202;
+    padding:12px 22px;
+    border-radius:30px;
+    transition:0.3s ease;
+}
+
+.book-btn:hover{
+    background:#d4af37;
+    transform:translateY(-2px);
+    color:white !important;
+}
+
+/* HERO */
+.offers-hero{
+    height:65vh;
+    background:url("https://images.pexels.com/photos/5086626/pexels-photo-5086626.jpeg") center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:white;
+    animation:fadeUp 1.2s ease;
+}
+
+.hero-content h1{
+    font-size:65px;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:18px;
+}
+
+/* OFFERS SECTION */
+.offers-section{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#666;
+}
+
+.offers-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:35px;
+}
+
+.center-card{
+    justify-content:center;
+}
+
+/* OFFER CARD */
+.offer-card{
+    width:380px;
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(55,2,2,0.25);
+    transition:0.5s ease;
+}
+
+.offer-card:hover{
+    transform:translateY(-12px);
+}
+
+.offer-image{
+    position:relative;
+    overflow:hidden;
+}
+
+.offer-image img{
+    width:100%;
+    height:270px;
+    object-fit:cover;
+    transition:0.5s ease;
+}
+
+.card-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.4);
+    opacity:0;
+    transition:0.4s ease;
+}
+
+.offer-card:hover img{
+    transform:scale(1.08);
+}
+
+.offer-card:hover .card-overlay{
+    opacity:1;
+}
+
+.offer-content{
+    padding:30px;
+}
+
+.offer-tag{
+    background:#d4af37;
+    color:white;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:14px;
+}
+
+.offer-content h3{
+    font-size:28px;
+    margin:20px 0;
+}
+
+.offer-content p{
+    color:#666;
+    line-height:1.8;
+}
+
+.offer-content ul{
+    list-style:none;
+    margin:20px 0;
+}
+
+.offer-content ul li{
+    margin-bottom:12px;
+}
+
+.offer-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#5a0202;
+    color:white;
+    padding:14px 30px;
+    border-radius:30px;
+    transition:0.3s ease;
+}
+
+.offer-btn:hover{
+    background:#d4af37;
+}
+
+/* Local Section */
+.local-bg{
+    background:#f0ede6;
+}
+
+/* FOOTER */
+.footer{
+    background:#340707;
+    color:white;
+    padding:60px 8% 20px;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:40px;
+}
+
+.footer-box{
+    flex:1;
+    min-width:220px;
+}
+
+.footer-box h3{
+    margin-bottom:18px;
+}
+
+.footer-box p{
+    line-height:1.8;
+    color:#ddd;
+}
+
+.footer-box a{
+    display:block;
+    margin-bottom:10px;
+    color:#ddd;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.footer-box a:hover{
+    color:#d4af37;
+}
+
+.footer-bottom{
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.2);
+    margin-top:40px;
+    padding-top:20px;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+
+    .navbar{
+        padding:18px 25px;
+    }
+
+    .hero-content h1{
+        font-size:48px;
+    }
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+        padding:15px;
+    }
+
+    .nav-left,
+    .nav-right{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero-content h1{
+        font-size:38px;
+    }
+
+    .offer-card{
+        width:100%;
+    }
+
+    .footer-container{
+        flex-direction:column;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="nav-left">
+
+        <a href="eco-cabana-home.html">Home</a>
+
+        <div class="dropdown">
+            <button class="dropbtn">
+                <a href="eco-cabana-accommodation.html">
+                    Accommodations ▾
+                </a>
+            </button>
+
+            <div class="dropdown-menu">
+                <a href="eco-cabana-accommodation.html">Double Deluxe Cabana</a>
+                <a href="eco-cabana-accommodation.html">Triple Deluxe Cabana</a>
+                <a href="eco-cabana-accommodation.html">Single Deluxe Cabana</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">
+                <a href="eco-cabana-locations.html">
+                    Location ▾
+                </a>
+            </button>
+
+            <div class="dropdown-menu">
+                <a href="eco-cabana-locations.html">Day Outs</a>
+                <a href="eco-cabana-locations.html">Nature Walks</a>
+                <a href="eco-cabana-locations.html">Nearby Attractions</a>
+            </div>
+        </div>
+
+        <a href="eco-cabana-offers.html">Offers</a>
+
+    </div>
+
+    <div class="nav-right">
+        <a href="eco-cabana-gallery.html">Gallery</a>
+        <a href="eco-cabana-bookins.html" class="book-btn">
+            Book Your Stay
+        </a>
+    </div>
+
+</header>
+
+<!-- HERO -->
+<section class="offers-hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <h1>Exclusive Offers</h1>
+        <p>
+            Enjoy luxury experiences with unforgettable savings at Eco Cabana
+        </p>
+    </div>
+
+</section>
+
+<!-- FOREIGN OFFERS -->
+<section class="offers-section">
+
+    <div class="section-title">
+        <h2>Foreign Guest Offers</h2>
+        <p>Special deals crafted for international travelers</p>
+    </div>
+
+    <div class="offers-container">
+
+        <div class="offer-card">
+
+            <div class="offer-image">
+                <img src="https://images.pexels.com/photos/7820326/pexels-photo-7820326.jpeg" alt="Offer">
+                <div class="card-overlay"></div>
+            </div>
+
+            <div class="offer-content">
+                <span class="offer-tag">Early Bird Offer</span>
+
+                <h3>Book Early & Save More</h3>
+
+                <p>
+                    Plan your vacation in advance and receive exclusive discounts
+                    on room bookings.
+                </p>
+
+                <ul>
+                    <li>✔ Up to 20% discount</li>
+                    <li>✔ Free breakfast included</li>
+                    <li>✔ Flexible booking dates</li>
+                </ul>
+
+                <a href="eco-cabana-bookins.html" class="offer-btn">
+                    Book Now
+                </a>
+            </div>
+
+        </div>
+
+        <div class="offer-card">
+
+            <div class="offer-image">
+                <img src="https://images.pexels.com/photos/20219120/pexels-photo-20219120.jpeg" alt="Offer">
+                <div class="card-overlay"></div>
+            </div>
+
+            <div class="offer-content">
+                <span class="offer-tag">Stay More Save More</span>
+
+                <h3>Long Stay Discounts</h3>
+
+                <p>
+                    Stay longer and unlock greater savings for an extended tropical escape.
+                </p>
+
+                <ul>
+                    <li>✔ Stay 3+ nights & save 15%</li>
+                    <li>✔ Complimentary welcome drink</li>
+                    <li>✔ Exclusive room upgrades</li>
+                </ul>
+
+                <a href="eco-cabana-bookins.html" class="offer-btn">
+                    Book Now
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- LOCAL OFFERS -->
+<section class="offers-section local-bg">
+
+    <div class="section-title">
+        <h2>Local Resident Offers</h2>
+        <p>Exclusive deals for Sri Lankan residents</p>
+    </div>
+
+    <div class="offers-container center-card">
+
+        <div class="offer-card">
+
+            <div class="offer-image">
+                <img src="https://images.pexels.com/photos/34133888/pexels-photo-34133888.jpeg" alt="Local Offer">
+                <div class="card-overlay"></div>
+            </div>
+
+            <div class="offer-content">
+                <span class="offer-tag">30% OFF</span>
+
+                <h3>Special Resident Offer</h3>
+
+                <p>
+                    Sri Lankan residents can enjoy a luxurious getaway with exclusive savings.
+                </p>
+
+                <ul>
+                    <li>✔ 30% off room rates</li>
+                    <li>✔ Weekend special access</li>
+                    <li>✔ Dining discounts included</li>
+                </ul>
+
+                <a href="eco-cabana-bookins.html" class="offer-btn">
+                    Book Now
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h3>Eco Cabana</h3>
+            <p>Luxury eco-friendly stays in nature.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="eco-cabana-home.html">Home</a>
+            <a href="eco-cabana-accommodation.html">Accommodation</a>
+            <a href="eco-cabana-locations.html">Location</a>
+            <a href="eco-cabana-offers.html">Offers</a>
+            <a href="eco-cabana-gallery.html">Gallery</a>
+            <a href="eco-cabana-bookins.html">Book Your Stay</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Email: info@ecocabana.com</p>
+            <p>Phone: +94 77 123 4567</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Eco Cabana | All Rights Reserved</p>
+    </div>
+
+</footer>
+
+</body>
+</html>

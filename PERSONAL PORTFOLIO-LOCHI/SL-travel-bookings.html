@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SL Travels - Booking</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:#f5fbff;
+  padding-top:80px;
+}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 60px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+  z-index:999;
+}
+
+.logo{
+  font-size:2rem;
+  font-weight:700;
+  color:#0077b6;
+  text-decoration:none;
+}
+
+.logo span{ color:#00b4d8; }
+
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:25px;
+  align-items:center;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#1e3a5f;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#00b4d8;
+}
+
+.book-btn{
+  padding:10px 20px;
+  background:linear-gradient(135deg,#0077b6,#00b4d8);
+  color:white;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* BOOKING SECTION */
+.booking-section{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+.title{
+  text-align:center;
+  font-size:3rem;
+  color:#023e8a;
+  font-weight:700;
+}
+
+.sub{
+  text-align:center;
+  color:#555;
+  margin-bottom:40px;
+}
+
+/* GRID */
+.booking-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+/* FORM BOX */
+.form-box{
+  background:white;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.form-box h3{
+  margin-bottom:20px;
+  color:#023e8a;
+}
+
+/* INPUTS */
+input, select, textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  outline:none;
+  font-size:0.95rem;
+}
+
+textarea{
+  resize:none;
+  height:120px;
+}
+
+/* BUTTON */
+.submit-btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(135deg,#0077b6,#00b4d8);
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.submit-btn:hover{
+  background:#023e8a;
+}
+
+/* INFO BOX */
+.info-box{
+  background:white;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.info-box h3{
+  color:#023e8a;
+  margin-bottom:15px;
+}
+
+.info-item{
+  background:#f1f9ff;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+/* FOOTER */
+.footer{
+  background:linear-gradient(135deg,#023e8a,#0077b6);
+  color:white;
+  padding:60px 20px 20px;
+  margin-top:80px;
+}
+
+.footer-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.footer h3{
+  margin-bottom:15px;
+}
+
+.footer a{
+  display:block;
+  color:#e6f4ff;
+  text-decoration:none;
+  margin-bottom:8px;
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:30px;
+  font-size:0.9rem;
+  color:#dbefff;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .booking-grid{
+    grid-template-columns:1fr;
+  }
+
+  .navbar{
+    flex-direction:column;
+    gap:10px;
+    padding:15px;
+  }
+
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="#" class="logo">SL <span>Travels</span></a>
+
+  <ul class="nav-links">
+    <li><a href="SL-travel-home.html">Home</a></li>
+    <li><a href="SL-travel-destinatins.html">Destinations</a></li>
+    <li><a href="SL-travel-tours.html">Tours</a></li>
+    <li><a href="SL-travel-activities.html">Activities</a></li>
+    <li><a href="SL-travel-bookings.html">Contact</a></li>
+    <li><a class="book-btn" href="SL-travel-bookings.html">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- BOOKING SECTION -->
+<section class="booking-section">
+
+  <h1 class="title">Book Your Trip</h1>
+  <p class="sub">Plan your perfect Sri Lanka travel experience</p>
+
+  <div class="booking-grid">
+
+    <!-- FORM -->
+    <div class="form-box">
+      <h3>Booking Form</h3>
+
+      <input type="text" placeholder="Full Name">
+      <input type="email" placeholder="Email Address">
+      <input type="tel" placeholder="Phone Number">
+
+      <select>
+        <option>Select Tour Package</option>
+        <option>7 Days Sri Lanka Tour</option>
+        <option>6 Days Coastal Escape</option>
+        <option>5 Days Nature Tour</option>
+        <option>Honeymoon Tour</option>
+        <option>Cultural Tour</option>
+        <option>Nature Based Tour</option>
+        <option>Adventural Tour</option>
+        <option>Wellness Tour</option>
+        <option>Customize Tour</option>
+      </select>
+
+      <input type="date">
+      <input type="number" placeholder="Number of Guests">
+
+      <textarea placeholder="Special Requests"></textarea>
+
+      <button class="submit-btn">Submit Booking</button>
+    </div>
+
+    <!-- INFO -->
+    <div class="info-box">
+      <h3>Why Book With Us?</h3>
+
+      <div class="info-item">✔ Best travel packages in Sri Lanka</div>
+      <div class="info-item">✔ 24/7 customer support</div>
+      <div class="info-item">✔ Affordable pricing</div>
+      <div class="info-item">✔ Experienced tour guides</div>
+      <div class="info-item">✔ Safe & comfortable travel</div>
+
+      <h3 style="margin-top:20px;">Contact Info</h3>
+
+      <div class="info-item"> Colombo, Sri Lanka</div>
+      <div class="info-item"> +94 77 123 4567</div>
+      <div class="info-item"> info@sltravels.com</div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-grid">
+
+    <div>
+      <h3>SL Travels</h3>
+      <p>Your trusted travel partner in Sri Lanka.</p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <a href="SL-travel-home.html">Home</a>
+      <a href="SL-travel-destinatins.html">Destination</a>
+      <a href="SL-travel-tours.html">Tours</a>
+      <a href="SL-travel-activities.html">Activities</a>
+      <a href="SL-travel-bookings.html">Contact</a>
+    </div>
+
+    <div>
+       <h3>Categories</h3>
+      <br>
+      <ul class="footer-links">
+        <li><a href="SL-travel-tours.html">Honeymoon</a></li>
+        <li><a href="SL-travel-tours.html">Cultural</a></li>
+        <li><a href="SL-travel-tours.html">Nature</a></li>
+        <li><a href="SL-travel-tours.html">Adventure</a></li>
+        <li><a href="SL-travel-tours.html">Wellness</a></li>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 SL Travels. All Rights Reserved
+  </div>
+
+</footer>
+
+</body>
+</html>

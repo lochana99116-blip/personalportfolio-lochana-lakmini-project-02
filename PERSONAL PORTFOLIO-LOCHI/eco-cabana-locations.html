@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Location - Eco Cabana</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Times New Roman", serif;
+        background: #f6f3ef;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 60px;
+        background: rgba(114, 42, 42, 0.85);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 9999;
+      }
+
+      .nav-left,
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+      }
+
+      /* BOOK BUTTON */
+      .book-btn {
+        font-family: "Times New Roman", Times, serif;
+        padding: 10px 18px;
+        background: #811212d8;
+        border: none;
+        border-radius: 25px;
+      }
+
+      .book-btn a {
+        color: white;
+      }
+
+      /* DROPDOWN */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropbtn {
+        font-family: "Times New Roman", Times, serif;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        min-width: 220px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        display: none;
+        flex-direction: column;
+      }
+
+      .dropdown-menu a {
+        padding: 12px 15px;
+        color: #333;
+        border-bottom: 1px solid #eee;
+      }
+
+      .dropdown-menu a:hover {
+        background: #b44a4a;
+        color: white;
+      }
+
+      /* hover + active */
+      .dropdown:hover .dropdown-menu,
+      .dropdown.active .dropdown-menu {
+        display: flex;
+      }
+
+      /* HERO */
+      .hero-location {
+        height: 90vh;
+        background: url("https://plus.unsplash.com/premium_photo-1730035378824-930cdb688183?q=80&w=1074")
+          center/cover fixed;
+        display: flex;
+        align-items: center;
+        padding: 0 10%;
+        color: white;
+        position: relative;
+      }
+
+      .hero-location::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+      }
+
+      .hero-content {
+        position: relative;
+        max-width: 600px;
+      }
+
+      .hero-content h1 {
+        font-size: 60px;
+      }
+
+      /* STORY SECTIONS */
+      .story-row {
+        display: flex;
+        height: 70vh;
+      }
+
+      .story-img {
+        flex: 1;
+        background: center/cover;
+        transition: 0.8s;
+      }
+
+      .story-row:hover .story-img {
+        transform: scale(1.03);
+      }
+
+      .story-text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 80px;
+        background: white;
+      }
+
+      .story-text h2 {
+        font-size: 42px;
+        margin-bottom: 20px;
+        color: #3b1f1f;
+      }
+
+      .story-text p {
+        font-size: 18px;
+        color: #555;
+        line-height: 1.8;
+      }
+
+      .story-text span {
+        margin-top: 20px;
+        font-size: 13px;
+        color: #8a5a44;
+        letter-spacing: 2px;
+      }
+
+      /* IMAGES */
+      .story-img.dayout {
+        background-image: url("https://plus.unsplash.com/premium_photo-1661677545983-9fa6467e0cf2");
+      }
+
+      .story-img.nature {
+        background-image: url("https://images.unsplash.com/photo-1560951750-1e85780f946b");
+      }
+
+      .story-img.attraction {
+        background-image: url("https://images.unsplash.com/photo-1567157802189-aadc856131dc");
+      }
+
+      /* REVERSE */
+      .reverse {
+        flex-direction: row-reverse;
+      }
+
+      /* FOOTER */
+      .footer {
+        background: #3c0303;
+        color: white;
+        padding: 70px 60px 30px;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+
+      .footer-box {
+        flex: 1;
+        min-width: 220px;
+      }
+
+      .footer-box h3 {
+        margin-bottom: 15px;
+      }
+
+      .footer-box a {
+        display: block;
+        color: #ddd;
+        text-decoration: none;
+        margin-bottom: 8px;
+      }
+
+      .footer-box a:hover {
+        color: white;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 20px;
+        color: #ccc;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .navbar {
+          padding: 15px 20px;
+        }
+
+        .story-row {
+          flex-direction: column;
+          height: auto;
+        }
+
+        .story-img {
+          height: 300px;
+        }
+
+        .story-text {
+          padding: 40px;
+        }
+
+        .hero-content h1 {
+          font-size: 38px;
+        }
+
+        .nav-left,
+        .nav-right {
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="nav-left">
+        <a href="eco-cabana-home.html">Home</a>
+
+        <div class="dropdown">
+          <button class="dropbtn">
+            <a href="eco-cabana-accommodation.html"> Accommodations ▾ </a>
+          </button>
+          <div class="dropdown-menu">
+            <a href="eco-cabana-accommodation.html">Double Deluxe</a>
+            <a href="eco-cabana-accommodation.html">Triple Deluxe</a>
+            <a href="eco-cabana-accommodation.html">Single Deluxe</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">
+            <a href="eco-cabana-locations.html"> Location ▾ </a>
+          </button>
+          <div class="dropdown-menu">
+            <a href="eco-cabana-locations.html">Day Outs</a>
+            <a href="eco-cabana-locations.html">Nature Walks</a>
+            <a href="eco-cabana-locations.html">Nearby Attractions</a>
+          </div>
+        </div>
+
+        <a href="eco-cabana-offers.html">Offers</a>
+      </div>
+
+      <div class="nav-right">
+        <a href="eco-cabana-gallery.html">Gallery</a>
+        <button class="book-btn">
+          <a href="eco-cabana-bookins.html">Book Stay</a>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-location">
+      <div class="hero-content">
+        <h1>Where Nature Begins at Your Doorstep</h1>
+        <p>
+          Eco Cabana is surrounded by untouched landscapes and cultural
+          heritage.
+        </p>
+      </div>
+    </section>
+
+    <!-- STORY 1 -->
+    <section class="story-row">
+      <div class="story-img dayout"></div>
+      <div class="story-text">
+        <h2>Day Outs</h2>
+        <p>Relaxing curated experiences with nature and comfort combined.</p>
+        <span>Private • Curated • Scenic</span>
+      </div>
+    </section>
+
+    <!-- STORY 2 -->
+    <section class="story-row reverse">
+      <div class="story-img nature"></div>
+      <div class="story-text">
+        <h2>Nature Walks</h2>
+        <p>Walk through forests, waterfalls, and silent natural corridors.</p>
+        <span>Forest • Waterfalls • Silence</span>
+      </div>
+    </section>
+
+    <!--STORY 3 -->
+    <section class="story-row">
+      <div class="story-img attraction"></div>
+      <div class="story-text">
+        <h2>Nearby Attractions</h2>
+        <p>Cultural and heritage sites within easy reach.</p>
+        <span>Culture • Heritage • Nature</span>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <h3>Eco Cabana</h3>
+          <p>Luxury eco stays surrounded by nature.</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+          <a href="eco-cabana-home.html">Home</a>
+          <a href="eco-cabana-accommodation.html">Accommodations</a>
+          <a href="eco-cabana-locations.html">Location</a>
+          <a href="eco-cabana-offers.html">Offers</a>
+          <a href="eco-cabana-gallery.html">Gallry</a>
+          <a href="eco-cabana-bookins.html">Book Stay</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Contact</h3>
+          <p>Email: info@ecocabana.com</p>
+          <br />
+          <p>Phone: +94 77 123 4567</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© 2026 Eco Cabana. All Rights Reserved.</div>
+    </footer>
+
+    <!--JS (dropdown mobile support) -->
+    <script>
+      document.querySelectorAll(".dropdown").forEach((drop) => {
+        drop.addEventListener("click", () => {
+          drop.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

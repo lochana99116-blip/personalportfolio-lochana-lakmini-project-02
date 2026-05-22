@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eco Cabana Book Your Stay</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Times New Roman", Times, serif;
+        background: #f7f7f7;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 18px 60px;
+        background: rgba(114, 42, 42, 0.25);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-left,
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .navbar a {
+        text-decoration: none;
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .navbar a:hover {
+        color: #d4af37;
+      }
+
+      /* BOOK BUTTON */
+      .book-btn {
+        background: #811212d8;
+        padding: 10px 20px;
+        border-radius: 30px;
+        transition: 0.3s;
+      }
+
+      .book-btn:hover {
+        background: #d4af37;
+        color: white !important;
+        transform: translateY(-2px);
+      }
+
+      /* DROPDOWN */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 230px;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: 0.3s ease;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 12px 15px;
+        color: #222;
+        border-bottom: 1px solid #eee;
+      }
+
+      .dropdown-menu a:hover {
+        background: #b76b6b;
+        color: white;
+      }
+
+      /* HERO */
+      .gallery-hero {
+        height: 70vh;
+        background: url("https://images.pexels.com/photos/20169639/pexels-photo-20169639.jpeg")
+          center/cover no-repeat;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        text-align: center;
+      }
+
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+      }
+
+      .gallery-content {
+        position: relative;
+        z-index: 2;
+        color: white;
+        animation: fadeUp 1s ease;
+      }
+
+      .gallery-content h1 {
+        font-size: 65px;
+      }
+
+      .gallery-content p {
+        font-size: 20px;
+      }
+
+      /* BOOKING FORM  */
+      .booking-section {
+        padding: 100px 10%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .form-box {
+        width: 100%;
+        max-width: 600px;
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-box h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #5a0202;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input,
+      select,
+      textarea {
+        font-family: "Times New Roman", Times, serif;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #d4af37;
+      }
+
+      /* BUTTON */
+      button {
+        font-family: "Times New Roman", Times, serif;
+        margin-top: 20px;
+        padding: 14px;
+        border: none;
+        background: #d4af37;
+        color: white;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #b89122;
+        transform: translateY(-2px);
+      }
+
+      /* CONTACT */
+      .contact {
+        text-align: center;
+        padding: 60px;
+        background: #f0f0f0;
+      }
+
+      .contact h2 {
+        margin-bottom: 15px;
+        color: #5a0202;
+      }
+
+      .contact p {
+        margin: 5px 0;
+      }
+
+      /* FOOTER */
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #111;
+        color: white;
+      }
+
+      /* ANIMATION */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          padding: 15px;
+          gap: 10px;
+        }
+
+        .nav-left,
+        .nav-right {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .gallery-content h1 {
+          font-size: 40px;
+        }
+
+        .gallery-content p {
+          font-size: 16px;
+        }
+
+        .booking-section {
+          padding: 80px 5%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="nav-left">
+        <a href="eco-cabana-home.html">Home</a>
+
+        <div class="dropdown">
+          <a href="eco-cabana-accommodation.html">Accommodations ▾</a>
+          <div class="dropdown-menu">
+            <a href="eco-cabana-accommodation.html">Double Deluxe Cabana</a>
+            <a href="eco-cabana-accommodation.html">Triple Deluxe Cabana</a>
+            <a href="eco-cabana-accommodation.html">Single Deluxe Cabana</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="eco-cabana-locations.html">Location ▾</a>
+          <div class="dropdown-menu">
+            <a href="eco-cabana-locations.html">Day Outs</a>
+            <a href="eco-cabana-locations.html">Nature Walks</a>
+            <a href="eco-cabana-locations.html">Nearby Attractions</a>
+          </div>
+        </div>
+
+        <a href="eco-cabana-offers.html">Offers</a>
+      </div>
+
+      <div class="nav-right">
+        <a href="eco-cabana-gallery.html">Gallery</a>
+        <a href="eco-cabana-bookins.html" class="book-btn">Book Your Stay</a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="gallery-hero">
+      <div class="overlay"></div>
+
+      <div class="gallery-content">
+        <h1>Book Your Stay</h1>
+        <p>Reserve your luxury eco experience today</p>
+      </div>
+    </section>
+
+    <!-- BOOKING FORM -->
+    <section class="booking-section">
+      <div class="form-box">
+        <h2>Reservation Form</h2>
+
+        <form>
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter your name" required />
+
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" required />
+
+          <label>Phone Number</label>
+          <input type="tel" placeholder="Enter your phone number" required />
+
+          <label>Check-in Date</label>
+          <input type="date" required />
+
+          <label>Check-out Date</label>
+          <input type="date" required />
+
+          <label>Room Type</label>
+          <select>
+            <option>Single Deluxe Cabana</option>
+            <option>Double Deluxe Cabana</option>
+            <option>Triple Deluxe Cabana</option>
+          </select>
+
+          <label>Message</label>
+          <textarea rows="4" placeholder="Any special requests..."></textarea>
+
+          <button type="submit">Submit Booking</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <p>Email: info@ecocabana.com</p>
+      <p>Phone: +94 77 123 4567</p>
+      <p>Location: Sri Lanka</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2026 Eco Cabana | All Rights Reserved</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SL Travels Home</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #f5fbff;
+      }
+
+      /* GO BACK BUTTON */
+
+      .go-back-btn {
+        position: fixed;
+        top: 100px;
+        left: 20px;
+        z-index: 9999;
+
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: #fff;
+
+        border: none;
+        padding: 12px 22px;
+
+        border-radius: 50px;
+
+        font-size: 15px;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+
+        cursor: pointer;
+
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+        transition: all 0.3s ease;
+      }
+
+      .go-back-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        background: linear-gradient(135deg, #2575fc, #6a11cb);
+      }
+
+      /* NAVBAR */
+      .sl-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-container {
+        width: 90%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+      }
+
+      .logo-text {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0077b6;
+        text-decoration: none;
+      }
+
+      .logo-text span {
+        color: #00b4d8;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #1e3a5f;
+        font-weight: 500;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0%;
+        height: 3px;
+        background: #00b4d8;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .book-btn {
+        padding: 10px 22px;
+        border-radius: 40px;
+        background: linear-gradient(135deg, #0077b6, #00b4d8);
+        color: white !important;
+      }
+
+      /* HERO */
+      .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding-top: 100px;
+        background:
+          linear-gradient(rgba(0, 60, 90, 0.45), rgba(0, 60, 90, 0.45)),
+          url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+            center/cover no-repeat;
+      }
+
+      .hero-title {
+        font-size: 4rem;
+        font-weight: 700;
+      }
+
+      .hero-title span {
+        color: #90e0ef;
+      }
+
+      .hero-subtitle {
+        max-width: 700px;
+        margin: 20px auto;
+      }
+
+      .hero-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 14px 35px;
+        background: white;
+        color: #0077b6;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      /* PACKAGES */
+      .package-section {
+        padding: 100px 5%;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: #023e8a;
+      }
+
+      .package-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+      }
+
+      .package-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: 0.4s;
+      }
+
+      .package-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .package-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .package-content {
+        padding: 20px;
+        color: #05138d;
+      }
+
+      .days-tag {
+        display: inline-block;
+        padding: 6px 14px;
+        background: #caf0f8;
+        border-radius: 20px;
+        color: #0077b6;
+        font-size: 0.85rem;
+      }
+
+      /* FEATURED */
+      .featured-section {
+        padding: 100px 5%;
+        background: white;
+      }
+
+      .featured-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+      }
+
+      .featured-card {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        height: 300px;
+      }
+
+      .featured-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s;
+      }
+
+      .featured-card:hover img {
+        transform: scale(1.1);
+      }
+
+      .featured-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      /* FOOTER */
+      .sl-footer {
+        background: linear-gradient(135deg, #023e8a, #0077b6);
+        color: white;
+        padding: 80px 5% 20px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: #e6f4ff;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 0.9rem;
+        color: #dbefff;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 992px) {
+        .package-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .featured-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .hero-title {
+          font-size: 2.8rem;
+        }
+
+        .nav-links {
+          gap: 15px;
+          flex-wrap: wrap;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .package-grid,
+        .featured-grid,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="sl-navbar">
+      <div class="nav-container">
+        <a href="#" class="logo-text">SL <span>Travels</span></a>
+
+        <ul class="nav-links">
+          <li><a href="SL-travel-home.html">Home</a></li>
+          <li><a href="SL-travel-destinatins.html">Destinations</a></li>
+          <li><a href="SL-travel-tours.html">Tours</a></li>
+          <li><a href="SL-travel-activities.html">Activities</a></li>
+          <li><a href="SL-travel-bookings.html">Contacts</a></li>
+          <li><a href="SL-travel-tours.html" class="book-btn">Book Now</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- BUTTON TYPE GO BACK -->
+    <div>
+      <a href="home.html">
+        <button class="go-back-btn">← Go Back</button>
+      </a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div>
+        <h1 class="hero-title">Explore the Beauty of <span>Sri Lanka</span></h1>
+        <p class="hero-subtitle">
+          Discover beaches, wildlife, culture and unforgettable journeys.
+        </p>
+        <a href="SL-travel-bookings.html" class="hero-btn"
+          >Start Your Journey</a
+        >
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="package-section">
+      <div class="section-title">
+        <h2>Popular Tour Packages</h2>
+      </div>
+
+      <div class="package-grid">
+        <a href="SL-travel-tours.html">
+          <div class="package-card">
+            <img
+              src="https://images.unsplash.com/photo-1544451822-38e32b887c08"
+            />
+            <div class="package-content">
+              <span class="days-tag">7 Days</span>
+              <h3>Ultimate Sri Lanka Tour</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="SL-travel-tours.html">
+          <div class="package-card">
+            <img
+              src="https://images.unsplash.com/photo-1650970366119-34cb82f8b4c1"
+            />
+            <div class="package-content">
+              <span class="days-tag">6 Days</span>
+              <h3>Coastal Escape</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="SL-travel-tours.html">
+          <div class="package-card">
+            <img
+              src="https://images.unsplash.com/photo-1596323718985-dc30d03b935f"
+            />
+            <div class="package-content">
+              <span class="days-tag">5 Days</span>
+              <h3>Nature Adventure</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="SL-travel-tours.html">
+          <div class="package-card">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1769871819635-517247b977f5"
+            />
+            <div class="package-content">
+              <span class="days-tag">4 Days</span>
+              <h3>Cultural Tour</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FEATURED TOURS -->
+    <section class="featured-section">
+      <div class="section-title">
+        <h2>Featured Tours</h2>
+      </div>
+
+      <div class="featured-grid">
+        <div class="featured-card">
+          <a href="SL-travel-tours.html">
+            <img
+              src="https://images.pexels.com/photos/1066801/pexels-photo-1066801.jpeg"
+            />
+            <div class="featured-overlay">Honeymoon</div>
+          </a>
+        </div>
+
+        <div class="featured-card">
+          <a href="SL-travel-tours.html">
+            <img
+              src="https://images.pexels.com/photos/32547976/pexels-photo-32547976.jpeg"
+            />
+            <div class="featured-overlay">Cultural</div>
+          </a>
+        </div>
+
+        <div class="featured-card">
+          <a href="SL-travel-tours.html">
+            <img
+              src="https://images.pexels.com/photos/36847094/pexels-photo-36847094.jpeg"
+            />
+            <div class="featured-overlay">Nature</div>
+          </a>
+        </div>
+
+        <div class="featured-card">
+          <a href="SL-travel-tours.html">
+            <img
+              src="https://images.pexels.com/photos/10825337/pexels-photo-10825337.jpeg"
+            />
+            <div class="featured-overlay">Adventure</div>
+          </a>
+        </div>
+
+        <div class="featured-card">
+          <a href="SL-travel-tours.html">
+            <img
+              src="https://images.pexels.com/photos/6246686/pexels-photo-6246686.jpeg"
+            />
+            <div class="featured-overlay">Wellness</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="sl-footer">
+      <div class="footer-grid">
+        <div>
+          <h2>SL Travels</h2>
+          <br />
+          <p>Your trusted travel partner in Sri Lanka.</p>
+        </div>
+
+        <div>
+          <h3>Quick Links</h3>
+          <br />
+          <ul class="footer-links">
+            <li><a href="SL-travel-home.html">Home</a></li>
+            <li><a href="SL-travel-destinatins.html">Destinations</a></li>
+            <li><a href="SL-travel-tours.html">Tours</a></li>
+            <li><a href="SL-travel-activities.html">Activities</a></li>
+            <li><a href="SL-travel-bookings.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Categories</h3>
+          <br />
+          <ul class="footer-links">
+            <li><a href="SL-travel-tours.html">Honeymoon</a></li>
+            <li><a href="SL-travel-tours.html">Cultural</a></li>
+            <li><a href="SL-travel-tours.html">Nature</a></li>
+            <li><a href="SL-travel-tours.html">Adventure</a></li>
+            <li><a href="SL-travel-tours.html">Wellness</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© 2026 SL Travels. All Rights Reserved</div>
+    </footer>
+  </body>
+</html>

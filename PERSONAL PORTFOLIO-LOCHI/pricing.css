@@ -1,0 +1,276 @@
+/* BODY */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+/*NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #f3e8ff;
+  transition: all 0.4s ease;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #4b0082;
+}
+
+.logo a{
+    text-decoration: none;
+    color: inherit;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #4b0082;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  background: #e0c3ff;
+}
+
+.nav-links a.active {
+  background: #851ce1;
+  color: white;
+}
+
+/* navbar scroll effect */
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f7f3ff;
+}
+
+.hero h1 {
+  font-size: 36px;
+  color: #4b0082;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #666;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* PRICING */
+.pricing-section {
+  padding: 60px 8%;
+  text-align: center;
+  background: #fff;
+}
+
+.section-title {
+  font-size: 32px;
+  color: #4b0082;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.pricing-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.pricing-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border-top: 4px solid #4b0082;
+  transition: 0.3s;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+}
+
+.pricing-card h2 {
+  color: #4b0082;
+  margin: 10px 0;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 18px;
+  background: #4b0082;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #2f0059;
+}
+
+.white-btn {
+  background: white;
+  color: #4b0082;
+  border: 2px solid white;
+}
+
+.white-btn:hover {
+  background: #eee;
+}
+
+/* CUSTOM BOX */
+.custom-section {
+  padding: 60px 8%;
+  text-align: center;
+  background: #f7f3ff;
+}
+
+.custom-box {
+  background: #210237;
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* FOOTER */
+.footer {
+  background: #2a0050;
+  text-align: center;
+  padding: 25px;
+  margin-top: 60px;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #d8c3ff;
+}
+
+.footer-text {
+  color: white;
+  font-size: 14px;
+}
+
+/* ANIMATION BASE STATE */
+
+.hero,
+.section-title,
+.section-subtitle,
+.pricing-card,
+.custom-box,
+.footer {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+/* ACTIVE STATE */
+.animate {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* CARDS SPECIAL EFFECT */
+.pricing-card {
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+.pricing-card.animate {
+  transform: translateY(0);
+}
+
+/* WORKING BUTTON ANIMATION */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* hover effect */
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* click effect */
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* ripple */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: rippleEffect 0.6s linear;
+  background: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+
+/* BUTTON PAGE LOAD ANIMATION (RISE IN) */
+
+.btn {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: btnRise 0.8s ease forwards;
+}
+
+/* stagger effect (different delay per button) */
+.btn:nth-of-type(1) { animation-delay: 0.2s; }
+.btn:nth-of-type(2) { animation-delay: 0.4s; }
+.btn:nth-of-type(3) { animation-delay: 0.6s; }
+
+@keyframes btnRise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

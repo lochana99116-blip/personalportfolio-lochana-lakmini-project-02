@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SL Travels - Tours</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #f5fbff;
+        padding-top: 90px;
+      }
+
+      /* NAVBAR */
+      .sl-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        z-index: 9999;
+      }
+
+      .nav-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+
+      .logo-text {
+        text-decoration: none;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0077b6;
+      }
+
+      .logo-text span {
+        color: #00b4d8;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #1e3a5f;
+        font-weight: 500;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0%;
+        height: 3px;
+        background: #00b4d8;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover::after,
+      .nav-links .active::after {
+        width: 100%;
+      }
+
+      .book-btn {
+        background: linear-gradient(135deg, #0077b6, #00b4d8);
+        color: white !important;
+        padding: 12px 28px;
+        border-radius: 40px;
+      }
+
+      /* TITLES */
+      .section-heading {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title,
+      .featured-title {
+        font-size: 3rem;
+        color: #023e8a;
+        font-weight: 700;
+      }
+
+      .section-sub,
+      .featured-sub {
+        color: #555;
+      }
+
+      /* PACKAGES */
+      .package-section {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 80px 0;
+      }
+
+      .package-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .package-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: 0.4s;
+      }
+
+      .package-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .package-header {
+        position: relative;
+      }
+
+      .package-header img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+      }
+
+      .badge-tag {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: linear-gradient(135deg, #0077b6, #00b4d8);
+        color: white;
+        padding: 7px 16px;
+        border-radius: 30px;
+      }
+
+      .package-body {
+        padding: 25px;
+      }
+
+      .package-body h3 {
+        color: #023e8a;
+        margin-bottom: 10px;
+      }
+
+      .package-body p {
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .tour-list {
+        list-style: none;
+      }
+
+      .tour-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 10px;
+      }
+
+      .tour-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 8px;
+        height: 8px;
+        background: #00b4d8;
+        border-radius: 50%;
+      }
+
+      /* FEATURED */
+      .featured-hero {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 80px 0;
+      }
+
+      .featured-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+      }
+
+      .mini-card {
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transition: 0.4s;
+      }
+
+      .mini-card:hover {
+        transform: translateY(-10px);
+        background: #0077b6;
+        color: white;
+      }
+
+      .mini-card h4 {
+        margin-bottom: 15px;
+      }
+
+      .feature-list {
+        list-style: none;
+      }
+
+      .feature-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 10px;
+      }
+
+      .feature-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 8px;
+        height: 8px;
+        background: #00b4d8;
+        border-radius: 50%;
+      }
+
+      /* FOOTER */
+      .sl-footer {
+        background: linear-gradient(135deg, #023e8a, #0077b6);
+        color: white;
+        padding: 80px 5% 25px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .footer-brand h2 {
+        font-size: 2.2rem;
+      }
+
+      .footer-brand span {
+        color: #90e0ef;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: #e6f4ff;
+      }
+
+      .footer-title {
+        margin-bottom: 15px;
+      }
+
+      .footer-line {
+        border: 0;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 40px 0 20px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 992px) {
+        .package-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .featured-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-container {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="sl-navbar">
+      <div class="nav-container">
+        <a class="logo-text" href="#">SL <span>Travels</span></a>
+
+        <ul class="nav-links">
+          <li><a href="SL-travel-home.html">Home</a></li>
+          <li><a href="SL-travel-destinatins.html">Destinations</a></li>
+          <li><a class="active" href="SL-travel-tours.html">Tours</a></li>
+          <li><a href="SL-travel-activities.html">Activities</a></li>
+          <li><a href="SL-travel-bookings.html">Contacts</a></li>
+          <li>
+            <a href="SL-travel-bookings.html" class="book-btn">Book Now</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- PACKAGES -->
+    <section class="package-section">
+      <div class="section-heading">
+        <h1 class="section-title">Signature Tour Packages</h1>
+        <p class="section-sub">
+          Experience Sri Lanka with well-planned itineraries
+        </p>
+      </div>
+
+      <div class="package-grid">
+        <!-- 1 -->
+        <div class="package-card">
+          <div class="package-header">
+            <img
+              src="https://images.pexels.com/photos/12147639/pexels-photo-12147639.jpeg"
+            />
+            <span class="badge-tag">7 Days</span>
+          </div>
+          <div class="package-body">
+            <h3>Grand Sri Lanka Experience</h3>
+            <p>
+              Complete island journey covering culture, nature, and beaches.
+            </p>
+
+            <ul class="tour-list">
+              <li>Arrival in Colombo & city tour</li>
+              <li>Sigiriya Rock Fortress exploration</li>
+              <li>Dambulla Cave Temple visit</li>
+              <li>Kandy Temple of Tooth & cultural show</li>
+              <li>Nuwara Eliya tea plantation tour</li>
+              <li>Scenic train ride to Ella</li>
+              <li>Mirissa beach & whale watching</li>
+              <li>Departure from Colombo</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="package-card">
+          <div class="package-header">
+            <img
+              src="https://images.pexels.com/photos/32398175/pexels-photo-32398175.jpeg"
+            />
+            <span class="badge-tag">6 Days</span>
+          </div>
+          <div class="package-body">
+            <h3>Coastal Escape</h3>
+            <p>Relaxing beach experience with cultural highlights.</p>
+
+            <ul class="tour-list">
+              <li>Colombo city sightseeing</li>
+              <li>Bentota beach relaxation</li>
+              <li>Water sports activities</li>
+              <li>Galle Fort heritage walk</li>
+              <li>Mirissa whale watching</li>
+              <li>Sunset cruise experience</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="package-card">
+          <div class="package-header">
+            <img
+              src="https://images.pexels.com/photos/761505/pexels-photo-761505.jpeg"
+            />
+            <span class="badge-tag">5 Days</span>
+          </div>
+          <div class="package-body">
+            <h3>Hill Country Escape</h3>
+            <p>Cool climate, waterfalls and scenic mountain views.</p>
+
+            <ul class="tour-list">
+              <li>Kandy city exploration</li>
+              <li>Ramboda waterfall visit</li>
+              <li>Tea factory experience</li>
+              <li>Nuwara Eliya sightseeing</li>
+              <li>Horton Plains hiking</li>
+              <li>Ella scenic train journey</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="package-card">
+          <div class="package-header">
+            <img
+              src="https://images.pexels.com/photos/5984733/pexels-photo-5984733.jpeg"
+            />
+            <span class="badge-tag">4 Days</span>
+          </div>
+          <div class="package-body">
+            <h3>Cultural Heritage Tour</h3>
+            <p>Ancient cities and UNESCO world heritage sites.</p>
+
+            <ul class="tour-list">
+              <li>Sigiriya Rock Fortress visit</li>
+              <li>Dambulla Cave Temple</li>
+              <li>Polonnaruwa ancient city</li>
+              <li>Kandy Temple of Tooth</li>
+              <li>Cultural dance performance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED -->
+    <section class="featured-hero">
+      <div class="section-heading">
+        <h2 class="featured-title">Featured Tours</h2>
+        <p class="featured-sub">Handpicked experiences</p>
+      </div>
+
+      <div class="featured-grid">
+        <div class="mini-card">
+          <h4>Honeymoon</h4>
+          <ul class="feature-list">
+            <li>Luxury beach resorts</li>
+            <li>Private candlelight dinners</li>
+            <li>Ocean view villas</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <h4>Cultural</h4>
+          <ul class="feature-list">
+            <li>Ancient cities & temples</li>
+            <li>Sigiriya & Polonnaruwa tours</li>
+            <li>Traditional dance shows</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <h4>Nature Based</h4>
+          <ul class="feature-list">
+            <li>Waterfalls & tea plantations</li>
+            <li>Horton Plains trekking</li>
+            <li>Wildlife safari parks</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <h4>Adventure</h4>
+          <ul class="feature-list">
+            <li>Surfing & diving</li>
+            <li>Safari & hiking trips</li>
+            <li>Hot air balloon rides</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <h4>Wellness</h4>
+          <ul class="feature-list">
+            <li>Ayurveda healing therapy</li>
+            <li>Yoga & meditation retreats</li>
+            <li>Spa relaxation packages</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="sl-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>SL <span>Travels</span></h2>
+          <p>Your trusted travel partner in Sri Lanka.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="SL-travel-home.html">Home</a></li>
+            <li><a href="SL-travel-tours.html">Destinations</a></li>
+            <li><a href="SL-travel-destinatins.html">Tours</a></li>
+            <li><a href="SL-travel-activities.html">Activities</a></li>
+            <li><a href="SL-travel-bookings.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Categories</h4>
+          <ul class="footer-links">
+            <li><a href="SL-travel-tours.html">Honeymoon</a></li>
+            <li><a href="SL-travel-tours.html">Cultural</a></li>
+            <li><a href="SL-travel-tours.html">Nature Basedl</a></li>
+            <li><a href="SL-travel-tours.html">Adventure</a></li>
+            <li><a href="SL-travel-tours.html">Wellness</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="footer-line" />
+
+      <div class="footer-bottom">© 2026 SL Travels. All Rights Reserved</div>
+    </footer>
+  </body>
+</html>

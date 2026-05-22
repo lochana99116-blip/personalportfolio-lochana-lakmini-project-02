@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>SL Travels - Outbound Destinations</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:#f5fbff;
+  padding-top:80px;
+}
+
+/* NAVBAR */
+.sl-navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:9999;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(10px);
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+}
+
+.nav-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+}
+
+.logo-text{
+  font-size:2rem;
+  font-weight:700;
+  color:#0077b6;
+  text-decoration:none;
+}
+
+.logo-text span{
+  color:#00b4d8;
+}
+
+.nav-links{
+  display:flex;
+  gap:25px;
+  list-style:none;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#1e3a5f;
+  font-weight:500;
+  position:relative;
+}
+
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:3px;
+  background:#00b4d8;
+  transition:0.3s;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+.book-btn{
+  padding:10px 22px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#0077b6,#00b4d8);
+  color:white !important;
+  text-decoration:none;
+}
+
+/* SECTION TITLE */
+.section-title{
+  font-size:2.5rem;
+  color:#023e8a;
+  font-weight:700;
+}
+
+.section-sub{
+  color:#555;
+  margin-top:10px;
+}
+
+/* OUTBOUND SECTION */
+.outbound-section{
+  padding:80px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+/* GRID */
+.outbound-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+/* CARD */
+.outbound-card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:0.4s;
+}
+
+.outbound-card:hover{
+  transform:translateY(-10px);
+}
+
+.outbound-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:20px;
+}
+
+.card-content h4{
+  color:#023e8a;
+  margin-bottom:10px;
+}
+
+.card-content p{
+  color:#666;
+}
+
+/* FOOTER */
+.sl-footer{
+  background:linear-gradient(135deg,#023e8a,#0077b6);
+  color:white;
+  padding:80px 20px 25px;
+}
+
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+.footer-links{
+  list-style:none;
+}
+
+.footer-links li{
+  margin-bottom:10px;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:#e6f4ff;
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:40px;
+  font-size:0.9rem;
+  color:#dbefff;
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+  .outbound-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .footer-container{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .outbound-grid{
+    grid-template-columns:1fr;
+  }
+  .footer-container{
+    grid-template-columns:1fr;
+  }
+  .nav-links{
+    gap:12px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="sl-navbar">
+  <div class="nav-container">
+
+    <a href="#" class="logo-text">SL <span>Travels</span></a>
+
+    <ul class="nav-links">
+      <li><a href="SL-travel-home.html">Home</a></li>
+      <li><a href="SL-travel-destinatins.html">Destination</a></li>
+      <li><a href="SL-travel-tours.html">Tours</a></li>
+      <li><a href="SL-travel-activities.html">Activities</a></li>
+      <li><a href="SL-travel-bookings.html">Contacts</a></li>
+      <li><a href="SL-travel-bookings.html" class="book-btn">Book Now</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<!-- DESTINATION CARDS -->
+<section class="outbound-section">
+
+  <div class="section-header">
+    <h2 class="section-title">Outbound Destinations</h2>
+    <p class="section-sub">Explore top international travel experiences from Sri Lanka</p>
+  </div>
+
+  <div class="outbound-grid">
+
+    <div class="outbound-card">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c">
+      <div class="card-content">
+        <h4>Dubai</h4>
+        <p>Luxury shopping, desert safari & skyline views.</p>
+      </div>
+    </div>
+
+    <div class="outbound-card">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+      <div class="card-content">
+        <h4>Maldives</h4>
+        <p>Crystal waters & romantic overwater villas.</p>
+      </div>
+    </div>
+
+    <div class="outbound-card">
+      <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd">
+      <div class="card-content">
+        <h4>Singapore</h4>
+        <p>Modern city life, shopping & nightlife.</p>
+      </div>
+    </div>
+
+    <div class="outbound-card">
+      <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365">
+      <div class="card-content">
+        <h4>Thailand</h4>
+        <p>Beaches, temples & island adventures.</p>
+      </div>
+    </div>
+
+    <div class="outbound-card">
+      <img src="https://images.unsplash.com/photo-1528127269322-539801943592">
+      <div class="card-content">
+        <h4>Malaysia</h4>
+        <p>Culture, skyscrapers & tropical islands.</p>
+      </div>
+    </div>
+
+    <div class="outbound-card">
+      <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
+      <div class="card-content">
+        <h4>India</h4>
+        <p>Heritage, spirituality & culture.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!--FOOTER  -->
+<footer class="sl-footer">
+
+  <div class="footer-container">
+
+    <div>
+      <h2>SL Travels</h2>
+      <br>
+      <p>Your trusted travel partner in Sri Lanka.</p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <br>
+      <ul class="footer-links">
+        <li><a href="SL-travel-home.html">Home</a></li>
+        <li><a href="SL-travel-destinatins.html">Destionations</a></li>
+        <li><a href="SL-travel-tours.html">Tours</a></li>
+        <li><a href="SL-travel-activities.html">Activities</a></li>
+        <li><a href="SL-travel-bookings.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Categories</h3>
+      <br>
+      <ul class="footer-links">
+        <li><a href="SL-travel-tours.html">Honeymoon</a></li>
+        <li><a href="SL-travel-tours.html">Cultural</a></li>
+        <li><a href="SL-travel-tours.html">Nature</a></li>
+        <li><a href="SL-travel-tours.html">Adventure</a></li>
+        <li><a href="SL-travel-tours.html">Wellness</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 SL Travels. All Rights Reserved
+  </div>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food Mart</title>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  animation: pageFade 0.8s ease-in-out;
+  background: #f5f5f5;
+}
+
+@keyframes pageFade {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+}
+
+.navbar-brand {
+  font-size: 28px;
+  font-weight: bold;
+  color: tomato;
+  text-decoration: none;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: tomato;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.brand-primary-text {
+  color: tomato;
+}
+
+/* GRID CARDS */
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  width: 90%;
+  margin: auto;
+  padding: 40px 0;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: tomato;
+  color: white;
+}
+
+/* ABOUT */
+.about-us {
+  display: flex;
+  gap: 60px;
+  padding: 60px 80px;
+  background: white;
+}
+
+ .about-us {
+  width: 100%;
+  padding: 60px 80px; /* space from page edges */
+  box-sizing: border-box;
+}
+
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%; 
+  gap: 60px;
+}
+/* LEFT SIDE */
+.about-title {
+  flex: 1;
+}
+
+.about-title h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* RIGHT SIDE */
+.about-content {
+  flex: 2; 
+}
+
+.about-content p {
+  text-align: justify;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* IMAGE */
+.full-width-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.full-width-image img:hover {
+  transform: scale(1.05);
+}
+
+/* INFO SECTION */
+.info-section {
+  padding: 80px 60px;
+  background: white;
+}
+
+.info-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.contact-form button {
+  background: tomato;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: darkred;
+}
+
+/* FOOTER */
+.simple-footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-us {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .info-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.Go-back-button{
+  background: tomato;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 20px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.Go-back-button{
+  background: darkred;
+  transform: scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a class="navbar-brand" href="#">Food Mart</a>
+
+  <ul>
+    <li><a href="foodmart-home.html">Home</a></li>
+    <li><a href="food-about.html">About</a></li>
+    <li><a href="food-gallery.html">Gallery</a></li>
+    <li><a href="food-contact.html">Contact</a></li>
+  </ul>
+</header>
+
+<!-- Go Back Button -->
+<a href="/home.html">
+  <button class="Go-back-button">Go Back</button>
+</a>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>We are <span class="brand-primary-text">Food Mart</span></h1>
+  <p>Your favourite food, delivered with Food Mart</p>
+</section>
+
+<!-- CARDS -->
+<section class="row">
+
+  <div class="card">
+    <img src="https://images.pexels.com/photos/15945595/pexels-photo-15945595.jpeg">
+    <div class="card-body">
+      <p>Italian Cuisine</p>
+      <div class="btn-group">
+        <button class="btn">Menu</button>
+        <button class="btn">Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.pexels.com/photos/26838688/pexels-photo-26838688.jpeg">
+    <div class="card-body">
+      <p>Chinese Cuisine</p>
+      <div class="btn-group">
+        <button class="btn">Menu</button>
+        <button class="btn">Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.pexels.com/photos/8963447/pexels-photo-8963447.jpeg">
+    <div class="card-body">
+      <p>Desserts</p>
+      <div class="btn-group">
+        <button class="btn">Menu</button>
+        <button class="btn">Order</button>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="about-us">
+  <div class="about-container">
+
+    <!-- LEFT SIDE -->
+    <div class="about-title">
+      <h2>About Us</h2>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="about-content">
+      <p>
+        At Food Mart, we are dedicated to providing fresh, high-quality groceries 
+        and everyday essentials at affordable prices. Our mission is to make shopping 
+        simple, convenient, and reliable for our customers.
+      </p>
+
+      <p>
+        Building on this commitment, we strive to create a seamless and enjoyable 
+        shopping experience through excellent customer service. We aim to be your 
+        trusted partner for all your household and food needs.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- IMAGE -->
+<div class="full-width-image">
+  <img src="https://images.pexels.com/photos/28647101/pexels-photo-28647101.jpeg">
+</div>
+
+<!-- INFO SECTION -->
+<section class="info-section">
+
+  <div class="info-container">
+
+    <div>
+      <h2>About Us</h2>
+    </div>
+
+    <div>
+      <h2>Address</h2>
+      <br>
+      <p>No:25,<p>
+        <br>
+        </p>Main Street,</p>
+        <br>
+        <p>Colombo 7</p>
+    </div>
+
+    <div>
+      <h2>Contact</h2>
+      <br>
+      <p>011 4567893</p>
+      <br>
+      <p>076 1234567</p>
+    </div>
+
+    <div>
+      <h2>Message</h2>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="Message"></textarea>
+        <button>Submit</button>
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="simple-footer">
+  <p>© 2020 Food Mart</p>
+</footer>
+
+</body>
+</html>

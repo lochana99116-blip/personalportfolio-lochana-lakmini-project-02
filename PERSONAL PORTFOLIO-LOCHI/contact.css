@@ -1,0 +1,212 @@
+/* Body */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f8f9fa;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #f3e8ff;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  animation: slideDown 0.6s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #4b0082;
+}
+
+.logo a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #4b0082;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  background: #e0c3ff;
+  transform: translateY(-2px);
+}
+
+.nav-links a.active {
+  background: #7b2cbf;
+  color: white;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 70px 20px;
+  animation: fadeUp 0.8s ease;
+}
+
+.hero h1 {
+  font-size: 42px;
+  color: #2a0050;
+}
+
+.hero p {
+  color: #555;
+  margin-top: 10px;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+
+/* CONTACT BOX */
+.contact-box {
+  width: 420px;
+  background: #2b0040;
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+.contact-box.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.contact-box h2 {
+  color: #d9b3ff;
+}
+
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.contact-box button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: #d9b3ff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-box button:hover {
+  background: #b46bff;
+  color: white;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp-btn {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  margin: 15px 0;
+  transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+  background: #2a0050;
+  text-align: center;
+  padding: 25px;
+  color: white;
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s ease;
+}
+
+.footer.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #d8c3ff;
+}
+
+/* ANIMATION UTIL */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* FOOTER ANIMATION */
+.footer {
+  background: #2a0050;
+  text-align: center;
+  padding: 25px;
+  color: white;
+  opacity: 1;
+  transform: translateY(0);
+  animation: footerUp 0.8s ease;
+}
+
+@keyframes footerUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
